@@ -13,3 +13,9 @@ register_nav_menus([
     'socialnetworks' => 'Réseaux sociaux',
     'footerlegal' => 'Informations légales (footer)'
 ]);
+
+//  LOGO
+$menu_name = 'menu-principal';
+$locations = get_nav_menu_locations();
+$menu_id   = $locations[$menu_name];
+$navID = wp_get_nav_menu_object($menu_id);
