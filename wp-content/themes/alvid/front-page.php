@@ -33,19 +33,28 @@
 
     <section class="container">
         <div>
-            <img src="<?php the_field('home__header_image'); ?>" alt="TODO">
-
-            <div>
-                <h2>Titre</h2>
-                <p>Description</p>
-            </div>
+            <?php if (have_rows('home__nettoyage_firstsub')) : ?>
+                <?php while (have_rows('home__nettoyage_firstsub')) : the_row(); ?>
+                    <img src="<?php wp_kses_post(the_sub_field('image')); ?>" alt="TODO">
+                    <div>
+                        <h2><?php wp_kses_post(the_sub_field('title')); ?></h2>
+                        <p><?php wp_kses_post(the_sub_field('description')); ?></p>
+                    </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
         </div>
+
+
         <div>
-            <div>
-                <h2>Titre</h2>
-                <p>Description</p>
-            </div>
-            <img src="#" alt="img">
+            <?php if (have_rows('home__nettoyage_secondsub')) : ?>
+                <?php while (have_rows('home__nettoyage_secondsub')) : the_row(); ?>
+                    <div>
+                        <h2><?php wp_kses_post(the_sub_field('title')); ?></h2>
+                        <p><?php wp_kses_post(the_sub_field('description')); ?></p>
+                    </div>
+                    <img src="<?php wp_kses_post(the_sub_field('image')); ?>" alt="TODO">
+                <?php endwhile; ?>
+            <?php endif; ?>
         </div>
     </section>
 
